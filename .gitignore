@@ -1,0 +1,10 @@
+.venv/
+.cache/
+artifacts/
+local.properties
+__pycache__/
+*.apk
+*.keystore
+*.jks
+assets/resource/model/
+.DS_Store

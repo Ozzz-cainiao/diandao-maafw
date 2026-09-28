@@ -1,0 +1,46 @@
+{
+  "framework": "v5.14.1",
+  "models_commit": "dabcd4681ac990dc4361de26416d986abd80e4aa",
+  "files": [
+    {
+      "path": "assets/resource/model/ocr/det.onnx",
+      "url": "https://raw.githubusercontent.com/MaaXYZ/MaaCommonAssets/dabcd4681ac990dc4361de26416d986abd80e4aa/OCR/ppocr_v4/zh_cn/det.onnx",
+      "sha256": "767e663dded50813dca0abc9a49859e345e0f74a48b387661188f096a9211d74"
+    },
+    {
+      "path": "assets/resource/model/ocr/rec.onnx",
+      "url": "https://raw.githubusercontent.com/MaaXYZ/MaaCommonAssets/dabcd4681ac990dc4361de26416d986abd80e4aa/OCR/ppocr_v4/zh_cn/rec.onnx",
+      "sha256": "da4815ea386ee8083be319da8d20e70f4fdb0b6404ba0d2da7f675831e1b37fa"
+    },
+    {
+      "path": "assets/resource/model/ocr/keys.txt",
+      "url": "https://raw.githubusercontent.com/MaaXYZ/MaaCommonAssets/dabcd4681ac990dc4361de26416d986abd80e4aa/OCR/ppocr_v4/zh_cn/keys.txt",
+      "sha256": "28b2362ad4ab2dc38769aa72feb535e3a9ddb3fd2a7585a05920e6393b1dc7f7"
+    },
+    {
+      "path": "assets/resource/model/ocr/LICENSE",
+      "url": "https://raw.githubusercontent.com/MaaXYZ/MaaCommonAssets/dabcd4681ac990dc4361de26416d986abd80e4aa/LICENSE",
+      "sha256": "2f8ab70ffd1bd53863a27835be02757a657de693e2a2aef9111dbbfa2c5737f0"
+    },
+    {
+      "path": ".cache/schema/interface.schema.json",
+      "url": "https://raw.githubusercontent.com/MaaXYZ/MaaFramework/v5.14.1/tools/interface.schema.json",
+      "sha256": "282f810d48628634d1708b7678faccd0e6d77cd1f40a5c391a13f5908f19f950"
+    },
+    {
+      "path": ".cache/schema/pipeline.schema.json",
+      "url": "https://raw.githubusercontent.com/MaaXYZ/MaaFramework/v5.14.1/tools/pipeline.schema.json",
+      "sha256": "8fbe2a3d003c2be53b762330ce6bbe3e2d624c0a4f9b86c14bfecabfdab58674"
+    },
+    {
+      "path": ".cache/schema/custom.recognition.schema.json",
+      "url": "https://raw.githubusercontent.com/MaaXYZ/MaaFramework/v5.14.1/tools/custom.recognition.schema.json",
+      "sha256": "b0811e29b7f393b946c4f0edbff33f41b212a591aacf921c3a785fcd39f91f1c"
+    },
+    {
+      "path": ".cache/schema/custom.action.schema.json",
+      "url": "https://raw.githubusercontent.com/MaaXYZ/MaaFramework/v5.14.1/tools/custom.action.schema.json",
+      "sha256": "bf43d631b606ac521cacf2c245658d382994d68394ad8f922c2b59dfb1fc139f"
+    }
+  ]
+}

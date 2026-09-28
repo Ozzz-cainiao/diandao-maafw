@@ -1,0 +1,170 @@
+{
+  "TaobaoDaily": {
+    "action": "StartApp",
+    "package": "com.taobao.taobao",
+    "post_delay": 2500,
+    "timeout": 15000,
+    "next": [
+      "EnterCoins",
+      "CoinPage"
+    ],
+    "focus": {
+      "Node.Action.Starting": "启动淘宝；请勿切换其他 App"
+    }
+  },
+  "EnterCoins": {
+    "recognition": "OCR",
+    "expected": "^领淘金币$",
+    "roi": [
+      0,
+      80,
+      720,
+      850
+    ],
+    "threshold": 0.7,
+    "action": "Click",
+    "max_hit": 1,
+    "post_delay": 2500,
+    "timeout": 15000,
+    "next": [
+      "CoinPage"
+    ],
+    "focus": {
+      "Node.Action.Starting": "进入淘金币页面"
+    }
+  },
+  "ClaimOnce": {
+    "recognition": "And",
+    "all_of": [
+      {
+        "recognition": "OCR",
+        "expected": "淘金币",
+        "roi": [
+          0,
+          45,
+          310,
+          135
+        ],
+        "threshold": 0.7
+      },
+      {
+        "recognition": "OCR",
+        "expected": "^签到领金币$",
+        "roi": [
+          0,
+          130,
+          720,
+          500
+        ],
+        "threshold": 0.7
+      }
+    ],
+    "box_index": 1,
+    "action": "Click",
+    "max_hit": 1,
+    "post_delay": 1200,
+    "timeout": 12000,
+    "next": [
+      "CheckClaimAbsent"
+    ],
+    "focus": {
+      "Node.Action.Starting": "点击签到一次，等待页面确认；失败不会重复点击"
+    }
+  },
+  "CheckClaimAbsent": {
+    "recognition": "OCR",
+    "expected": "^签到领金币$",
+    "roi": [
+      0,
+      130,
+      720,
+      500
+    ],
+    "threshold": 0.7,
+    "inverse": true,
+    "action": "DoNothing",
+    "timeout": 12000,
+    "next": [
+      "ConfirmClaimed"
+    ]
+  },
+  "ConfirmClaimed": {
+    "recognition": "And",
+    "all_of": [
+      {
+        "recognition": "OCR",
+        "expected": "淘金币",
+        "roi": [
+          0,
+          45,
+          310,
+          135
+        ],
+        "threshold": 0.7
+      },
+      {
+        "recognition": "OCR",
+        "expected": "^今天$",
+        "roi": [
+          0,
+          155,
+          300,
+          250
+        ],
+        "threshold": 0.7
+      },
+      {
+        "recognition": "OCR",
+        "expected": "赚更多金币",
+        "roi": [
+          0,
+          260,
+          720,
+          450
+        ],
+        "threshold": 0.7
+      }
+    ],
+    "action": "DoNothing",
+    "timeout": 3000,
+    "next": [
+      "ReturnHome"
+    ],
+    "focus": {
+      "Node.Recognition.Succeeded": "已识别签到后的页面标记，检查签到按钮是否仍然消失"
+    }
+  },
+  "ReturnHome": {
+    "recognition": "OCR",
+    "expected": "^签到领金币$",
+    "roi": [
+      0,
+      130,
+      720,
+      500
+    ],
+    "threshold": 0.7,
+    "inverse": true,
+    "action": "ClickKey",
+    "key": 3,
+    "focus": {
+      "Node.Action.Succeeded": "签到后页面已确认；已发送返回桌面指令（未核实金币余额）"
+    }
+  },
+  "CoinPage": {
+    "recognition": "OCR",
+    "expected": "^淘金币$",
+    "roi": [
+      0,
+      45,
+      310,
+      135
+    ],
+    "threshold": 0.7,
+    "timeout": 12000,
+    "next": [
+      "ClaimOnce",
+      "CheckClaimAbsent"
+    ]
+  }
+}

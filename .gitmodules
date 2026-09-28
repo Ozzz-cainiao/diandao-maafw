@@ -1,0 +1,3 @@
+[submodule "vendor/MaaFwApp"]
+	path = vendor/MaaFwApp
+	url = https://github.com/Aliothmoon/MaaFwApp.git

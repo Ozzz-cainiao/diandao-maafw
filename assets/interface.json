@@ -1,0 +1,39 @@
+{
+  "interface_version": 2,
+  "name": "DiandaoExperimental",
+  "label": "点到实验版",
+  "version": "0.1.0-alpha.1",
+  "icon": "icon.png",
+  "github": "https://github.com/Ozzz-cainiao/diandao-maafw",
+  "description": "每日淘金币签到实验版。请先使用前台模式；尚未通过真机领取验收。",
+  "welcome": "请先启动 Shizuku 并授权，保持手机解锁、淘宝登录且停在首页。首轮只选前台模式。未知弹窗会导致任务超时停止，请人工处理后重试。每日签到只点击一次，识别失败不会重复领取。",
+  "license": "LICENSE",
+  "controller": [
+    {
+      "name": "Android",
+      "label": "Android 手机",
+      "type": "Adb",
+      "display_short_side": 720
+    }
+  ],
+  "resource": [
+    {
+      "name": "Taobao",
+      "label": "淘宝签到",
+      "path": [
+        "resource"
+      ],
+      "controller": [
+        "Android"
+      ]
+    }
+  ],
+  "task": [
+    {
+      "name": "TaobaoDaily",
+      "label": "淘金币签到并返回桌面",
+      "entry": "TaobaoDaily",
+      "description": "打开淘宝→进入淘金币→签到一次或确认已签到→返回桌面。需要解锁、登录、无阻挡弹窗。结果仅为页面识别确认，不表示核实金币余额。"
+    }
+  ]
+}

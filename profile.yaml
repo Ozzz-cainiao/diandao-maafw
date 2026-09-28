@@ -1,0 +1,11 @@
+assets: ./assets
+include:
+  - interface.json
+  - icon.png
+  - resource/**
+  - LICENSE
+  - THIRD_PARTY_NOTICES.md
+app:
+  id: diandao
+  label: 点到实验版
+  icon: ./assets/icon.png
