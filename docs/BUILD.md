@@ -2,7 +2,7 @@
 
 递归克隆本仓库以取得固定子模块：`git clone --recurse-submodules <本仓库地址>`。已克隆时运行 `git submodule update --init --recursive`。
 
-需要 Python 3.10+、JDK 17、Android SDK。当前外壳要求 compileSdk 37、CMake 3.22.1，Gradle Wrapper 使用 9.4.1；不要使用旧版点到的 Gradle 8.11.1 脚本。
+需要 Python 3.10+、JDK 17、Android SDK。当前外壳要求 compileSdk 37（SDK 包名 `platforms;android-37.0`；命令行工具 22.0）、CMake 3.22.1，Gradle Wrapper 使用 9.4.1；不要使用旧版点到的 Gradle 8.11.1 脚本。
 
 ```sh
 python3 -m venv .venv
