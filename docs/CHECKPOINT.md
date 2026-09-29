@@ -11,7 +11,7 @@
 
 ## 未完成与限制
 
-- 首次 Android 构建正在验证，尚无可安装产物证明。没有连接手机，不声称已完成实机签到或金币到账。
+- 云端已生成开发 APK；没有连接手机，不声称已完成实机签到或金币到账。
 - 无手机的状态测试用 OfflineController，只执行内存模拟操作；不等于 Android 控制器验证。
 - 未实现广告关闭，遮挡成功标记时会失败。OCR 不等同旧版控件树，选择器需持续增加真实样本验证。
 - 只验证前台流程；定时、锁屏、虚拟显示器虽然底座具备相关能力，未对淘宝做验收。
@@ -29,3 +29,18 @@
 首个 CI 因安装已移除的 SDK `tools` 包失败，已改为只安装 platform-tools；checkout 改为完整历史，保证基于提交数量的版本号递增。本地已进入 NDK 28.2.13676358 安装阶段。
 
 2026-09-29：官方 SDK 目录确认包名为 `platforms;android-37.0`，修正 CI，并锁定命令行工具 22.0（15859902）。本地 NDK 下载包损坏导致安装失败，优先通过云端出包。
+
+## 云端构建通过（2026-09-29）
+
+代码提交 `0569a46` 的 Actions 运行 https://github.com/Ozzz-cainiao/diandao-maafw/actions/runs/36505024009 已成功。资源下载、6 项测试、assembleDebug、产物上传均通过。产物 diandao-experimental-debug（压缩约 65 MiB），仍是 Debug 开发包，尚未实机验收。云端已解决 SDK 37.0 环境；本机 NDK 安装失败仍需后续修复，不影响云端出包。
+
+## 真机配置存档（2026-09-29）
+
+- 开发 APK 已下载到 artifacts/diandao-experimental-debug.apk 并安装成功，package=com.aliothmoon.maafw.diandao，versionCode=3，versionName=0569a46，arm64-v8a。
+- APK SHA256：db97199159cc9df929f5acbc59c990b1f85af9488af24ff2172149433fd245d1。包内签到 Pipeline 和中文 OCR 三件套已核验。
+- Shizuku 已授权，服务就绪；新建“空配置”并添加每日签到任务。
+- 用户要求暂不接 Mirror：设备上更新源已改 GitHub，启动自动检查已关闭，重启确认不再弹“更新源缺少配置”。这只是当前设备设置，尚未改变新安装默认值。
+- 尚未执行实际领奖。上游 SessionViewModel.start 明确拦截前台模式的 InApp 启动，需从悬浮面板启动；openControlOverlay 另要求主屏 16:9。此前任务页灰色按钮不是服务坏了，而是该入口在前台模式被拦截。临时改尺寸后的 UI 操作结果不一致，不把原因断言为输入缩放或冻结。
+- 停止测试时手机已切到其他应用，没有在该应用上继续点击。已恢复 wm size（1080x2400，无 override）和 stay_on_while_plugged_in=0。
+- 下一步先离线梳理前台入口/悬浮权限与竖屏适配，确定最少改动；不要再反复调整用户主屏。背景虚拟屏当前枚举固定横屏1280x720/1920x1080，不能直接声称支持淘宝竖屏。
+- 用户问进度时明确：安装与授权完成，签到验收未完成，不发布稳定版、不替换旧版。
